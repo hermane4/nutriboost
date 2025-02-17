@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Nutribooost</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        h1 { color: #2c3e50; }
+        .container { max-width: 600px; margin: auto; padding: 20px; }
+        form { display: flex; flex-direction: column; }
+        input, textarea { margin: 10px 0; padding: 10px; width: 100%; }
+        .button { background: #27ae60; color: white; padding: 10px 20px; text-decoration: none; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Contactez-nous</h1>
+        <p>Remplissez le formulaire ci-dessous et nous vous répondrons rapidement.</p>
+        <form action="https://formspree.io/f/mwkgjqkl" method="POST">
+            <input type="text" name="name" placeholder="Votre nom" required>
+            <input type="email" name="email" placeholder="Votre email" required>
+            <textarea name="message" rows="5" placeholder="Votre message" required></textarea>
+            <button type="submit" class="button">Envoyer</button>
+        </form>
+        <br>
+        <a href="index.html">Retour à l'accueil</a>
+    </div>
+</body>
+</html>
