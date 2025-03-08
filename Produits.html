@@ -3,30 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nos Produits - Nutribooost</title>
-    <style>
-        body { font-family: Arial, sans-serif; text-align: center; }
-        h1 { color: #2c3e50; }
-        .container { max-width: 800px; margin: auto; padding: 20px; }
-        .product { border: 1px solid #ddd; padding: 15px; margin: 10px; display: inline-block; }
-        .button { background: #27ae60; color: white; padding: 10px 20px; text-decoration: none; }
-    </style>
+    <title>Nos Produits - NutriBoost</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
+    <header>
         <h1>Nos Produits</h1>
-        <div class="product">
-            <h2>Complément Vitaminé</h2>
-            <p>Boostez votre énergie avec ce complément riche en vitamines.</p>
-            <a href="#" class="button">Acheter</a>
+        <nav>
+            <a href="index.html">Accueil</a> | 
+            <a href="produits.html">Produits</a> | 
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <section class="produits">
+        <div class="produit">
+            <img src="proteine.jpg" alt="Protéine Whey">
+            <h2>Protéine Whey</h2>
+            <p>Une protéine de qualité pour votre prise de masse.</p>
+            <span class="prix">38,000 cfa</span>
+            <button>Ajouter au panier</button>
         </div>
-        <div class="product">
-            <h2>Oméga-3 Naturel</h2>
-            <p>Un supplément essentiel pour le bien-être du cœur et du cerveau.</p>
-            <a href="#" class="button">Acheter</a>
+
+        <div class="produit">
+            <img src="créatine.jpg" alt="Créatine Monohydrate">
+            <h2>Créatine Monohydrate</h2>
+            <p>Idéale pour améliorer vos performances.</p>
+            <span class="prix">18,000 cfa</span>
+            <button>Ajouter au panier</button>
         </div>
-        <a href="index.html">Retour à l'accueil</a>
-    </div>
+
+        <div class="produit">
+            <img src="omega-3.jpg" alt="Oméga 3">
+            <h2>Oméga 3</h2>
+            <p>Un complément essentiel pour votre santé.</p>
+            <span class="prix">18,000 cfa</span>
+            <button>Ajouter au panier</button>
+        </div>
+
+        <!-- Nouveaux Produits -->
+        <div class="produit">
+            <img src="bcaa.jpg" alt="BCAA">
+            <h2>BCAA</h2>
+            <p>Acides aminés essentiels pour la récupération musculaire.</p>
+            <span class="prix">24,000 cfa</span>
+            <button>Ajouter au panier</button>
+        </div>
+
+        <div class="produit">
+            <img src="brule-graisse.jpg" alt="Brûleur de graisse">
+            <h2>LIPO 6 -Brûleur de graisse</h2>
+            <p>Favorise la perte de poids et booste le métabolisme.</p>
+            <span class="prix">35,000 cfa</span>
+            <button>Ajouter au panier</button>
+        </div>
+
+    </section>
 </body>
 </html>
- 
