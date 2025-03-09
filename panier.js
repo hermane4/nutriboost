@@ -48,18 +48,18 @@ function supprimerProduit(index) {
 } 
 
 function allerAuPaiement() { 
+    if (panier.length === 0) {
+        alert("Votre panier est vide !");
+        return;
+    }
+
     alert("Redirection vers la page de paiement..."); 
     
-    // Redirection vers la page de paiement selon le mode choisi 
-    const modePaiement = prompt("Choisissez votre mode de paiement: (1) Orange Money, (2) Moov Money, (3) Wave"); 
+    const modePaiement = prompt("Choisissez votre mode de paiement:\n(1) Orange Money\n(2) Moov Money\n(3) Wave"); 
     
-    if (modePaiement === "1") { 
-        window.location.href = "https://www.orange.ci/paiement"; 
-    } else if (modePaiement === "2") { 
-        window.location.href = "https://www.moov.ci/paiement"; 
-    } else if (modePaiement === "3") { 
-        window.location.href = "https://www.wave.com/paiement"; 
+    if (["1", "2", "3"].includes(modePaiement)) { 
+        alert(`Effectuez le paiement via :\nNuméro : +225 0151600402\nMontant : ${panier.reduce((sum, p) => sum + p.prix, 0).toLocaleString()} CFA`);
     } else { 
-        alert("Mode de paiement invalide."); 
+        alert("Mode de paiement invalide.");
     } 
 }
