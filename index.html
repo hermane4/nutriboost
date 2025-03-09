@@ -9,28 +9,30 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            text-align: center;
             background-color: #f4f4f4;
             margin: 0;
             padding: 0;
         }
 
+        /* ----- HEADER & NAVIGATION ----- */
         header {
             background: #2c3e50;
             color: white;
-            padding: 20px;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
         header img {
-            display: block;
-            margin: 0 auto;
-            width: 150px;
+            width: 120px;
             border-radius: 10px;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
         }
 
         nav {
-            margin-top: 10px;
+            flex-grow: 1;
+            text-align: right;
         }
 
         nav a {
@@ -41,14 +43,15 @@
             font-weight: bold;
         }
 
+        /* ----- CONTENU PRINCIPAL ----- */
         .container {
             max-width: 800px;
-            margin: auto;
+            margin: 30px auto;
             padding: 20px;
             background: white;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
             border-radius: 10px;
-            margin-top: 20px;
+            text-align: center;
         }
 
         h1 {
@@ -73,23 +76,26 @@
             margin-top: 10px;
         }
 
+        /* ----- IMAGE MUSCLÉ ----- */
         .image-section {
             text-align: center;
             margin: 20px 0;
         }
 
         .muscle-img {
-            width: 80%;
-            max-width: 500px;
+            width: 60%;
+            max-width: 350px; /* Réduction de la taille */
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
 
+        /* ----- FOOTER ----- */
         footer {
             background: #2c3e50;
             color: white;
             padding: 15px;
             margin-top: 20px;
+            text-align: center;
         }
 
         footer a {
@@ -104,7 +110,6 @@
 
 <header>
     <img src="NUTRIBOOST.jpeg" alt="NutriBoost">
-    <h1>Bienvenue sur NutriBoost</h1>
     <nav>
         <a href="index.html">Accueil</a> | 
         <a href="Produits.html">Produits</a> | 
@@ -114,11 +119,10 @@
 
 <div class="container">
     <h1>Boostez Votre Santé et Vos Performances</h1>
-    <p>Chez <strong>NutriBoost</strong>, nous vous aidons à atteindre vos objectifs de bien-être et de performance grâce à une gamme de compléments alimentaires de haute qualité. 
-        Nos produits sont conçus pour vous donner l’énergie et la vitalité dont vous avez besoin au quotidien.</p>
+    <p>Chez <strong>NutriBoost</strong>, nous vous aidons à atteindre vos objectifs de bien-être et de performance grâce à une gamme de compléments alimentaires de haute qualité.</p>
 
     <div class="image-section">
-        <img src="image.jpeg" alt="Un homme musclé et en forme" class="muscle-img">
+        <img src="images/muscle-man.jpg" alt="Un homme musclé et en forme" class="muscle-img">
     </div>
 
     <p>Que vous soyez un sportif, un professionnel actif ou simplement soucieux de votre santé, nous avons ce qu’il vous faut :</p>
@@ -128,7 +132,7 @@
         <li>🌱 Vitamines et minéraux pour renforcer votre système immunitaire</li>
         <li>⚡ Super-aliments et compléments pour un mode de vie équilibré</li>
     </ul>
-   <br>
+ <br>
     <br>
     <a href="Produits.html" class="button">Découvrir nos produits</a>
 </div>
