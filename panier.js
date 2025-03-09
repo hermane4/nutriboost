@@ -7,9 +7,9 @@ document.addEventListener("DOMContentLoaded", function () {
         btn.addEventListener("click", function () {
             const produit = this.parentElement;
             const nom = produit.querySelector("h2").innerText;
-            // Corriger la récupération du prix
+            // Nettoyer le prix pour le convertir correctement en nombre
             const prixText = produit.querySelector(".prix").innerText.replace("cfa", "").trim();
-            const prix = parseInt(prixText.replace(/\s+/g, '').replace(',', ''));
+            const prix = parseFloat(prixText.replace(/\s+/g, '').replace(',', '.'));
 
             const produitAjoute = { nom, prix };
             panier.push(produitAjoute);
