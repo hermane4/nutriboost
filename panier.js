@@ -1,21 +1,21 @@
-let panier = JSON.parse(localStorage.getItem("panier")) || [] ;
+let panier = JSON.parse(localStorage.getItem("panier")) || [];
 
 document.addEventListener("DOMContentLoaded", function() { 
-    const boutonsAjout = document.querySelectorAll(".produit bouton"); 
-    
-    boutonsAjout.forEach((btn, index) => { 
+    const boutonsAjout = document.querySelectorAll(".produit button"); 
+
+    boutonsAjout.forEach((btn) => { 
         btn.addEventListener("click", function() { 
             const produit = this.parentElement; 
             const nom = produit.querySelector("h2").innerText; 
-            
+
             // Nettoyer le prix pour le convertir correctement en nombre
             const prixText = produit.querySelector(".prix").innerText.replace("cfa", "").trim(); 
             const prix = parseFloat(prixText.replace(/\s+/g, '').replace(',', '.')); 
-            
+
             const produitAjoute = { nom, prix }; 
-            panier.push(produitAjoute);
+            panier.push(produitAjoute); // 🔥 Ajout du produit au panier
             localStorage.setItem("panier", JSON.stringify(panier)); 
-            afficherPanier(); 
+            afficherPanier(); // 🔥 Mise à jour de l'affichage
         }); 
     }); 
     
@@ -25,10 +25,10 @@ document.addEventListener("DOMContentLoaded", function() {
 function afficherPanier() { 
     const listePanier = document.getElementById("liste-panier"); 
     const totalPrix = document.getElementById("total-prix"); 
-    
+
     listePanier.innerHTML = ""; 
-    let total = 0 ; 
-    
+    let total = 0; 
+
     panier.forEach((produit, index) => { 
         let li = document.createElement("li"); 
         li.innerHTML = `${produit.nom} - ${produit.prix.toLocaleString()} CFA 
@@ -37,7 +37,7 @@ function afficherPanier() {
         listePanier.appendChild(li); 
         total += produit.prix; 
     }); 
-    
+
     totalPrix.innerText = total.toLocaleString(); 
 } 
 
