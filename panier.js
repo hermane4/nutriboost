@@ -1,41 +1,65 @@
-function allerAuPaiement() {
-    let total = panier.reduce((sum, produit) => sum + produit.prix, 0);
+let panier = JSON.parse(localStorage.getItem("panier")) || [] ;
 
-    if (total === 0) {
-        alert("Votre panier est vide !");
-        return;
-    }
+document.addEventListener("DOMContentLoaded", function() { 
+    const boutonsAjout = document.querySelectorAll(".produit bouton"); 
+    
+    boutonsAjout.forEach((btn, index) => { 
+        btn.addEventListener("click", function() { 
+            const produit = this.parentElement; 
+            const nom = produit.querySelector("h2").innerText; 
+            
+            // Nettoyer le prix pour le convertir correctement en nombre
+            const prixText = produit.querySelector(".prix").innerText.replace("cfa", "").trim(); 
+            const prix = parseFloat(prixText.replace(/\s+/g, '').replace(',', '.')); 
+            
+            const produitAjoute = { nom, prix }; 
+            panier.push(produitAjoute);
+            localStorage.setItem("panier", JSON.stringify(panier)); 
+            afficherPanier(); 
+        }); 
+    }); 
+    
+    afficherPanier(); 
+}); 
 
-    // Configuration CinetPay
-    CinetPay.setConfig({
-        apikey: "TA_CLE_CINETPAY", // Remplace par ta clé API CinetPay
-        site_id: "105889553", // Ton site_id
-        notify_url: "https://ton-site.com/notification", // URL pour la notification
-        return_url: "https://ton-site.com/success", // URL de retour après paiement
-    });
+function afficherPanier() { 
+    const listePanier = document.getElementById("liste-panier"); 
+    const totalPrix = document.getElementById("total-prix"); 
+    
+    listePanier.innerHTML = ""; 
+    let total = 0 ; 
+    
+    panier.forEach((produit, index) => { 
+        let li = document.createElement("li"); 
+        li.innerHTML = `${produit.nom} - ${produit.prix.toLocaleString()} CFA 
+        <button onclick="supprimerProduit(${index})">❌</button>`; 
+        
+        listePanier.appendChild(li); 
+        total += produit.prix; 
+    }); 
+    
+    totalPrix.innerText = total.toLocaleString(); 
+} 
 
-    // Lancer le paiement CinetPay
-    CinetPay.getCheckout({
-        transaction_id: "CMD_" + Math.floor(Math.random() * 1000000), // ID unique pour chaque transaction
-        amount: total, // Montant à payer
-        currency: "XOF", // Monnaie
-        channels: "ALL", // Accepter tous les canaux de paiement (Orange Money, Moov, Wave)
-        description: "Paiement de votre panier",
-        customer_name: "Nom Client", // Nom du client
-        customer_surname: "Prenom Client", // Prénom du client
-        customer_email: "email@example.com", // Email du client
-        customer_phone_number: "2250700000000", // Numéro de téléphone du client
-    });
+function supprimerProduit(index) { 
+    panier.splice(index, 1); 
+    localStorage.setItem("panier", JSON.stringify(panier)); 
+    afficherPanier(); 
+} 
 
-    // Ecoute la réponse du paiement
-    CinetPay.waitResponse(function (data) {
-        if (data.status === "ACCEPTED") {
-            alert("Paiement réussi !");
-            panier = []; // Vider le panier après paiement
-            localStorage.setItem("panier", JSON.stringify(panier));
-            afficherPanier();
-        } else {
-            alert("Paiement échoué ou annulé.");
-        }
-    });
+function allerAuPaiement() { 
+    alert("Redirection vers la page de paiement..."); 
+    
+    // Redirection vers la page de paiement selon le mode choisi 
+    const modePaiement = prompt("Choisissez votre mode de paiement: (1) Orange Money, (2) Moov Money, (3) Wave"); 
+    
+    if (modePaiement === "1") { 
+        window.location.href = "https://www.orange.ci/paiement"; 
+    } else if (modePaiement === "2") { 
+        window.location.href = "https://www.moov.ci/paiement"; 
+    } else if (modePaiement === "3") { 
+        window.location.href = "https://www.wave.com/paiement"; 
+    } else { 
+        alert("Mode de paiement invalide."); 
+    } 
 }
