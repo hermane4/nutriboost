@@ -1,10 +1,109 @@
 <!DOCTYPE html>
 <html lang="fr">
-
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriBoost - Boostez Votre Santé</title>
     <link rel="stylesheet" href="style.css">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+        }
+
+        header img {
+            display: block;
+            margin: 0 auto;
+            width: 150px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        h1 {
+            color: #2c3e50;
+        }
+
+        p {
+            font-size: 18px;
+            color: #555;
+            line-height: 1.6;
+        }
+
+        .button {
+            background: #27ae60;
+            color: white;
+            padding: 12px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .image-section {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .muscle-img {
+            width: 80%;
+            max-width: 500px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            padding: 15px;
+            margin-top: 20px;
+        }
+
+        footer a {
+            color: #27ae60;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
 
 <header>
-    <img src="NUTRIBOOST.jpeg" alt="NutriBoost" width="150">
+    <img src="NUTRIBOOST.jpeg" alt="NutriBoost">
     <h1>Bienvenue sur NutriBoost</h1>
     <nav>
         <a href="index.html">Accueil</a> | 
@@ -13,28 +112,30 @@
     </nav>
 </header>
 
-    
-    <style>
-        
-        body { font-family: Arial, sans-serif; text-align: center; }
-        h1 { color: #2c3e50; }
-        .container { max-width: 800px; margin: auto; padding: 20px; }
-        .button { background: #27ae60; color: white; padding: 10px 20px; text-decoration: none; }
-        img {
-        display: block; /* Centre l'image */
-        margin: 20px auto; /* Espace autour et centrage */
-        width: 150px; /* Taille du logo */
-        border-radius: 10px; /* Coins arrondis */
-        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Ombre */
-    }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Bienvenue sur Nutribooost</h1>
-        <p>Boostez votre bien-être avec nos compléments alimentaires de qualité.</p>
-        <a href="Produits.html" class="button">Découvrir nos produits</a>
+<div class="container">
+    <h1>Boostez Votre Santé et Vos Performances</h1>
+    <p>Chez <strong>NutriBoost</strong>, nous vous aidons à atteindre vos objectifs de bien-être et de performance grâce à une gamme de compléments alimentaires de haute qualité. 
+        Nos produits sont conçus pour vous donner l’énergie et la vitalité dont vous avez besoin au quotidien.</p>
+
+    <div class="image-section">
+        <img src="image.jpeg" alt="Un homme musclé et en forme" class="muscle-img">
     </div>
-   <a href="contact.html">Nous Contactez</a> 
+
+    <p>Que vous soyez un sportif, un professionnel actif ou simplement soucieux de votre santé, nous avons ce qu’il vous faut :</p>
+    <ul style="text-align: left; display: inline-block;">
+        <li>🏋️‍♂️ Protéines et acides aminés pour la récupération musculaire</li>
+        <li>💪 Brûleurs de graisse et boosters d’énergie</li>
+        <li>🌱 Vitamines et minéraux pour renforcer votre système immunitaire</li>
+        <li>⚡ Super-aliments et compléments pour un mode de vie équilibré</li>
+    </ul>
+
+    <a href="Produits.html" class="button">Découvrir nos produits</a>
+</div>
+
+<footer>
+    <p>Des questions ? <a href="contact.html">Contactez-nous</a></p>
+    <p>&copy; 2025 NutriBoost - Tous droits réservés.</p>
+</footer>
+
 </body>
 </html>
