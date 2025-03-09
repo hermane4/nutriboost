@@ -13,9 +13,9 @@ document.addEventListener("DOMContentLoaded", function() {
             const prix = parseFloat(prixText.replace(/\s+/g, '').replace(',', '.')); 
 
             const produitAjoute = { nom, prix }; 
-            panier.push(produitAjoute); // 🔥 Ajout du produit au panier
+            panier.push(produitAjoute); // ✅ Produit bien ajouté au panier
             localStorage.setItem("panier", JSON.stringify(panier)); 
-            afficherPanier(); // 🔥 Mise à jour de l'affichage
+            afficherPanier(); // ✅ Mise à jour de l'affichage du panier
         }); 
     }); 
     
@@ -38,7 +38,7 @@ function afficherPanier() {
         total += produit.prix; 
     }); 
 
-    totalPrix.innerText = total.toLocaleString(); 
+    totalPrix.innerText = total.toLocaleString() + " CFA"; 
 } 
 
 function supprimerProduit(index) { 
