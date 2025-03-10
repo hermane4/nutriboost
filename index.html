@@ -26,6 +26,7 @@
 
         header img {
             width: 120px;
+            height: auto;
             border-radius: 10px;
             box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
         }
@@ -76,6 +77,20 @@
             margin-top: 10px;
         }
 
+        .search-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .search-container input {
+            padding: 10px;
+            font-size: 16px;
+            width: 100%;
+            max-width: 400px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
         /* ----- IMAGE MUSCLÉ ----- */
         .image-section {
             text-align: center;
@@ -121,18 +136,23 @@
     <h1>Boostez Votre Santé et Vos Performances</h1>
     <p>Chez <strong>NutriBoost</strong>, nous vous aidons à atteindre vos objectifs de bien-être et de performance grâce à une gamme de compléments alimentaires de haute qualité.</p>
 
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="Rechercher un produit..." onkeyup="filtrerProduits()">
+    </div>
+
     <div class="image-section">
         <img src="image.jpeg" alt="Un homme musclé et en forme" class="muscle-img">
     </div>
 
     <p>Que vous soyez un sportif, un professionnel actif ou simplement soucieux de votre santé, nous avons ce qu’il vous faut :</p>
-    <ul style="text-align: left; display: inline-block;">
+    <ul id="produits-list" style="text-align: left; display: inline-block;">
         <li>🏋️‍♂️ Protéines et acides aminés pour la récupération musculaire</li>
         <li>💪 Brûleurs de graisse et boosters d’énergie</li>
         <li>🌱 Vitamines et minéraux pour renforcer votre système immunitaire</li>
         <li>⚡ Super-aliments et compléments pour un mode de vie équilibré</li>
     </ul>
- <br>
+ 
+    <br>
     <br>
     <a href="Produits.html" class="button">Découvrir nos produits</a>
 </div>
@@ -141,6 +161,25 @@
     <p>Des questions ? <a href="contact.html">Contactez-nous</a></p>
     <p>&copy; 2025 NutriBoost - Tous droits réservés.</p>
 </footer>
+
+<script>
+    function filtrerProduits() {
+        const input = document.getElementById("search-input");
+        const filter = input.value.toLowerCase();
+        const produitsList = document.getElementById("produits-list");
+        const produits = produitsList.getElementsByTagName("li");
+
+        for (let i = 0; i < produits.length; i++) {
+            const produit = produits[i];
+            const texteProduit = produit.textContent || produit.innerText;
+            if (texteProduit.toLowerCase().includes(filter)) {
+                produit.style.display = "";
+            } else {
+                produit.style.display = "none";
+            }
+        }
+    }
+</script>
 
 </body>
 </html>
