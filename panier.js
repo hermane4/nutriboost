@@ -9,57 +9,59 @@ document.addEventListener("DOMContentLoaded", function() {
             const nom = produit.querySelector("h2").innerText; 
 
             // Nettoyer le prix pour le convertir correctement en nombre
-            const prixText = produit.querySelector(".prix").innerText.replace("cfa", "").trim(); 
-            const prix = parseFloat(prixText.replace(/\s+/g, '').replace(',', '.')); 
+            const prixText = produit.querySelector(".prix").innerText.replace("CFA", "").trim();
+            const prix = parseFloat(prixText.replace(/\s+/g, '').replace(',', '.'));
 
-            const produitAjoute = { nom, prix }; 
-            panier.push(produitAjoute); // ✅ Produit bien ajouté au panier
-            localStorage.setItem("panier", JSON.stringify(panier)); 
-            afficherPanier(); // ✅ Mise à jour de l'affichage du panier
+            const produitAjoute = { nom, prix };
+            panier.push(produitAjoute);
+
+            localStorage.setItem("panier", JSON.stringify(panier));
+            afficherPanier();
         }); 
     }); 
-    
-    afficherPanier(); 
+
+    afficherPanier();
 }); 
 
 function afficherPanier() { 
     const listePanier = document.getElementById("liste-panier"); 
     const totalPrix = document.getElementById("total-prix"); 
-
+    
     listePanier.innerHTML = ""; 
-    let total = 0; 
+    let total = 0;
 
     panier.forEach((produit, index) => { 
         let li = document.createElement("li"); 
         li.innerHTML = `${produit.nom} - ${produit.prix.toLocaleString()} CFA 
         <button onclick="supprimerProduit(${index})">❌</button>`; 
-        
         listePanier.appendChild(li); 
         total += produit.prix; 
     }); 
 
-    totalPrix.innerText = total.toLocaleString() + " CFA"; 
+    totalPrix.innerText = total.toLocaleString();
 } 
 
 function supprimerProduit(index) { 
     panier.splice(index, 1); 
     localStorage.setItem("panier", JSON.stringify(panier)); 
-    afficherPanier(); 
+    afficherPanier();
 } 
 
 function allerAuPaiement() { 
-    if (panier.length === 0) {
-        alert("Votre panier est vide !");
-        return;
-    }
+    alert("Redirection vers le paiement...");
 
-    alert("Redirection vers la page de paiement..."); 
-    
-    const modePaiement = prompt("Choisissez votre mode de paiement:\n(1) Orange Money\n(2) Moov Money\n(3) Wave"); 
-    
-    if (["1", "2", "3"].includes(modePaiement)) { 
-        alert(`Effectuez le paiement via :\nNuméro : +225 0151600402\nMontant : ${panier.reduce((sum, p) => sum + p.prix, 0).toLocaleString()} CFA`);
+    // Afficher les numéros de paiement au lieu des liens
+    const modePaiement = prompt(
+        "Choisissez votre mode de paiement:\n1️⃣ Orange Money\n2️⃣ Moov Money\n3️⃣ Wave"
+    );
+
+    if (modePaiement === "1") { 
+        alert("Payez via Orange Money au +225 0777065750");
+    } else if (modePaiement === "2") { 
+        alert("Payez via Moov Money au +225 0151600402");
+    } else if (modePaiement === "3") { 
+        alert("Payez via Wave au +225 0151600402");
     } else { 
         alert("Mode de paiement invalide.");
-    } 
+    }
 }
